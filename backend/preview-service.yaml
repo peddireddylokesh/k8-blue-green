@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:                 # this is all internal to the cluster
-  name: backend
+  name: backend-preview
   namespace: expense
 spec:
   selector:
