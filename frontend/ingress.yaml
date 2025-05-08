@@ -1,0 +1,26 @@
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: frontend
+  namespace: frontend
+  annotations:
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS": 443}]'
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:897729141306:certificate/72412e80-ed04-46f0-90e2-95bc9a326fe8
+    alb.ingress.kubernetes.io/group: peddireddylokesh
+spec:
+  ingressClassName: alb
+  rules:
+  - host: "expense-dev.lokeshportfo.site"
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: frontend
+            port:
+              number: 80
+
