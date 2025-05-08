@@ -6,6 +6,7 @@ metadata:
   namespace: expense
   annotations:
     alb.ingress.kubernetes.io/scheme: internet-facing
+    kubernetes.io/ingress.class: alb  
     alb.ingress.kubernetes.io/target-type: ip
     alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS": 443}]'
     alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:897729141306:certificate/72412e80-ed04-46f0-90e2-95bc9a326fe8
